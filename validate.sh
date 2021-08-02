@@ -22,7 +22,7 @@ function validate()
     fi
 
     local github_repo="$1"
-    local github_branch="$2"
+    local github_branch="${2#refs/heads/}" # Remove refspec prefix from GITHUB_REF
 
     # cypresssemiconductorco/mtb-mw-manifest -> mtb-mw-manifest
     local github_reponame="$(basename "$github_repo")"
